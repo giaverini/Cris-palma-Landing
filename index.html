@@ -259,10 +259,9 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
     </div>
     <!-- VIDEO -->
     <div class="vsl-wrap fade">
-      <script src="https://fast.wistia.com/player.js" async></script>
-      <script src="https://fast.wistia.com/embed/k0pia38nva.js" async type="module"></script>
-      <style>wistia-player[media-id='k0pia38nva']:not(:defined){background:center/contain no-repeat url('https://fast.wistia.com/embed/medias/k0pia38nva/swatch');display:block;filter:blur(5px);padding-top:55.83%}</style>
-      <wistia-player media-id="k0pia38nva" aspect="1.791044776119403" style="width:100%;display:block"></wistia-player>
+      <div class="vsl-frame">
+        <iframe src="https://fast.wistia.net/embed/iframe/k0pia38nva?autoPlay=false&controlsVisibleOnLoad=true&fullscreenButton=true&playbar=true&volumeControl=true" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none"></iframe>
+      </div>
     </div>
     <!-- BOTÓN -->
     <div class="fade" style="margin-top:44px">
@@ -590,4 +589,9 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 
 <script>
 const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add(
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') });
+}, {threshold: 0.08});
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+window.addEventListener('scroll', () => {
+  do
