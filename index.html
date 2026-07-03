@@ -590,8 +590,7 @@ footer{background:var(--black);padding:32px 52px;border-top:1px solid rgba(201,1
 <script>
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') });
-}, {threshold: 0.08});
+}, {threshold: 0});
 document.querySelectorAll('.fade').forEach(el => io.observe(el));
 
-window.addEventListener('scroll', () => {
-  do
+// Fallback: si el observer no dispara, mostrar t
